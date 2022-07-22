@@ -12,12 +12,16 @@
 <main>
     <br>
 
-    <form>
+    <form id="sub">
         <h1> Search for a City</h1>
         <input id="info" placeholder="Enter City"></input>
     </form>
 
     <button id="choose">Click</button>
+
+    <div>
+        <ul id="city-weather"></ul>
+    </div>
 
     <div id="box">
         <h2 class="title">Current Weather</h2>
@@ -32,9 +36,23 @@
     <br>
         <h3>UV Index:</h3>
         <div id="Uvi"></div>
+        
     </div>
 
-    
+    <div id="forecast">
+        <h2 class="title" id="futuro" >5 Day Weather</h3>
+            <h3 id="currents"></h3>
+            <h3>Temperature:</h3>
+            <div id="pasttemp"></div>
+        <br>
+            <h3>Wind Speed:</h3>
+            <div id="pastwind"></div>
+        <br>
+            <h3>Humidity:</h3>
+            <div id="pasthumidity"></div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="./assets/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script> 
