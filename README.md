@@ -23,3 +23,4 @@ going within the time.
 Data output:
 
 ![output](./assets/images/weather.jpg)
+

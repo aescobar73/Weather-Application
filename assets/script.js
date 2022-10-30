@@ -3,15 +3,23 @@ var apiKey = '7e461f5d070af7de1c2d5bd578274de9'
 var searchButton = document.querySelector('#choose')
 var cityList = document.querySelector('#city-weather')
 var fiveDays = document.querySelector('#futuro')
+var enter = document.querySelector('#info')
+
+enter.addEventListener('keypress', function(event) {
+    if (event.key === "Enter" ) {
+        event.preventDefault();
+        searchButton.click()
+    }
+});
 
 
 
 searchButton.addEventListener('click', function(){
-    searchVal = document.querySelector("#info").value;
-    requestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${searchVal}&appid=7e461f5d070af7de1c2d5bd578274de9`
+    
 
     
-        
+    searchVal = document.querySelector("#info").value;
+    requestUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${searchVal}&appid=7e461f5d070af7de1c2d5bd578274de9`
     
 
     $.ajax({
@@ -53,8 +61,7 @@ searchButton.addEventListener('click', function(){
             var time = moment().format('dddd, MMMM Do YYYY')
             $('#currents').text(time)
 
-            // var changeDate = moment.unix(future).format('dddd, MMMM, Do YYYY')
-            // console.log(changeDate)
+           
 
             $.ajax({
                 url: 'https://api.openweathermap.org/data/2.5/onecall?lat='+latitude+'&lon='+longitude+'&exclude=current,minutely,hourly,alerts&appid=7e461f5d070af7de1c2d5bd578274de9&units=imperial',
@@ -64,7 +71,7 @@ searchButton.addEventListener('click', function(){
                 for (var i = 0; i <= 5; i++) { 
 
                 var conversion = days.data[i].dt;
-                var furtureDay = new Date(conversion*1000);
+                // var furtureDay = new Date(conversion*1000);
                 var forecast = document.createElement('ul')
 
                 var dataTemp = days.daily[i].temp.day;
@@ -121,6 +128,7 @@ searchButton.addEventListener('click', function(){
 
 
     })
+
 
 
 })
